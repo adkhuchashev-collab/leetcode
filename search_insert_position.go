@@ -10,17 +10,12 @@ func searchInsert(nums []int, target int) int {
 		switch {
 		case nums[mid] == target:
 			return mid
-		case nums[mid] > target && start != end:
+		case nums[mid] > target:
 			end = mid - 1
-		case nums[mid] < target && start != end:
+		case nums[mid] < target:
 			start = mid + 1
-		case start == end:
-			if nums[mid] > target {
-				return mid - 1
-			}
-			return mid + 1
 		}
 	}
 
-	return -1
+	return start
 }
